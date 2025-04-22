@@ -3,7 +3,7 @@
 ;
 
 .equ	T=10
-.equ	N=
+.equ	N=10
 
 ldi		r16,HIGH(RAMEND)
 out		SPH,r16
@@ -26,15 +26,13 @@ AGAIN:
 ;;;;;;;;;;;;;;;;;;;; Subrutin DELAY(r16=length)
 DELAY:
 	push	r17
-	sbi		PORTB,7
 DELAY_OUTER_LOOP:
 	ldi		r17,$1F
 DELAY_INNER_LOOP:
 	dec		r17
 	brne	DELAY_INNER_LOOP
-	dec		r16
+	dec		r18
 	brne	DELAY_OUTER_LOOP
-	cbi		PORTB,7
 	pop		r17
 	ret
 
@@ -46,18 +44,62 @@ HW_INIT_EXIT:
 
 GET_CHAR:
 	lpm		r16,Z+
-	brne	LOOKUP
+	;brne	LOOKUP
+	;call	SEND
+	;brne	GET_CHAR
 GET_CHAR_EXIT:
-	ret		; gå till 
+	ret		; gå till MORSE
+
+SEND_IT:
+	call	BEEP_CHAR
+	brne	GET_CHAR
+SEND_IT_EXIT:
+	ret
+
+BEEP_CHAR:
+	call	LOOKUP
+	call	SEND
+	ldi		r17,2*N
+	;call	NOBEEP
+BEEP_CHAR_EXIT:
+	ret
+
+SEND:
+	lsl		r16
+	ldi		r18,3*N
+SEND_BITS:
+	brcc	SHORT_BEEP	; Hur sätter vi längden?
+	brcs	BEEP
+	;call	NOBEEP
+	andi	r16,$FF
+	brne	SEND
+SEND_EXIT:
+	ret
+
+SHORT_BEEP:
+	ldi		r18,N
+BEEP:
+	sbi		PORTB,7	
+	call	DELAY
+	cbi		PORTB,7
+BEEP_EXIT:
+	ret
+
+;NOBEEP:
+;	ldi		r18,N
+
+
 
 LOOKUP:
-	push	ZH,ZL
+	push	ZH
+	push	ZL
 	ldi		ZH,HIGH(BTAB*2)
 	ldi		ZL,LOW(BTAB*2)
 	subi	r16,'A'
-	ldi		Z,Z+r16
+	add		ZL,r16
 	lpm		r16,Z
-	pop		ZL,ZH
+	pop		ZL
+	pop		ZH
 LOOKUP_EXIT:
 	ret
 
