@@ -43,7 +43,7 @@ HW_INIT_EXIT:
 	ret		; gå till MORSE
 
 GET_CHAR:
-	lpm		r16,Z+
+	lpm		r16,Z+ ; Detta loopar inte så vi får bara in 'D', men det fungerar
 	;brne	LOOKUP
 	;call	SEND
 	;brne	GET_CHAR
