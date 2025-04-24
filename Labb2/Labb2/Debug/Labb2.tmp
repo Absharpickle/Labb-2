@@ -22,29 +22,33 @@
   <FILE>Labb2.lss</FILE>
  </OUTPUT_FILES>
  <LABELS>
-  <MESSAGE><FILE>\\filur03.it.liu.se\students\joeeb477\Documents\Microchip Studio\7.0\Labb2\Labb2\Labb2\main.asm</FILE><LINE>16</LINE></MESSAGE>
-  <BTAB><FILE>\\filur03.it.liu.se\students\joeeb477\Documents\Microchip Studio\7.0\Labb2\Labb2\Labb2\main.asm</FILE><LINE>18</LINE></BTAB>
-  <AGAIN><FILE>\\filur03.it.liu.se\students\joeeb477\Documents\Microchip Studio\7.0\Labb2\Labb2\Labb2\main.asm</FILE><LINE>22</LINE></AGAIN>
-  <MORSE><FILE>\\filur03.it.liu.se\students\joeeb477\Documents\Microchip Studio\7.0\Labb2\Labb2\Labb2\main.asm</FILE><LINE>109</LINE></MORSE>
-  <DELAY><FILE>\\filur03.it.liu.se\students\joeeb477\Documents\Microchip Studio\7.0\Labb2\Labb2\Labb2\main.asm</FILE><LINE>27</LINE></DELAY>
-  <DELAY_OUTER_LOOP><FILE>\\filur03.it.liu.se\students\joeeb477\Documents\Microchip Studio\7.0\Labb2\Labb2\Labb2\main.asm</FILE><LINE>29</LINE></DELAY_OUTER_LOOP>
-  <DELAY_INNER_LOOP><FILE>\\filur03.it.liu.se\students\joeeb477\Documents\Microchip Studio\7.0\Labb2\Labb2\Labb2\main.asm</FILE><LINE>31</LINE></DELAY_INNER_LOOP>
-  <HW_INIT><FILE>\\filur03.it.liu.se\students\joeeb477\Documents\Microchip Studio\7.0\Labb2\Labb2\Labb2\main.asm</FILE><LINE>39</LINE></HW_INIT>
-  <HW_INIT_EXIT><FILE>\\filur03.it.liu.se\students\joeeb477\Documents\Microchip Studio\7.0\Labb2\Labb2\Labb2\main.asm</FILE><LINE>42</LINE></HW_INIT_EXIT>
-  <GET_CHAR><FILE>\\filur03.it.liu.se\students\joeeb477\Documents\Microchip Studio\7.0\Labb2\Labb2\Labb2\main.asm</FILE><LINE>45</LINE></GET_CHAR>
-  <GET_CHAR_EXIT><FILE>\\filur03.it.liu.se\students\joeeb477\Documents\Microchip Studio\7.0\Labb2\Labb2\Labb2\main.asm</FILE><LINE>50</LINE></GET_CHAR_EXIT>
-  <SEND_IT><FILE>\\filur03.it.liu.se\students\joeeb477\Documents\Microchip Studio\7.0\Labb2\Labb2\Labb2\main.asm</FILE><LINE>53</LINE></SEND_IT>
+  <AGAIN><FILE>\\filur03.it.liu.se\students\joeeb477\Documents\Microchip Studio\7.0\Labb2\Labb2\Labb2\main.asm</FILE><LINE>24</LINE></AGAIN>
+  <MESSAGE><FILE>\\filur03.it.liu.se\students\joeeb477\Documents\Microchip Studio\7.0\Labb2\Labb2\Labb2\main.asm</FILE><LINE>18</LINE></MESSAGE>
+  <BTAB><FILE>\\filur03.it.liu.se\students\joeeb477\Documents\Microchip Studio\7.0\Labb2\Labb2\Labb2\main.asm</FILE><LINE>20</LINE></BTAB>
+  <MORSE><FILE>\\filur03.it.liu.se\students\joeeb477\Documents\Microchip Studio\7.0\Labb2\Labb2\Labb2\main.asm</FILE><LINE>131</LINE></MORSE>
+  <DELAY><FILE>\\filur03.it.liu.se\students\joeeb477\Documents\Microchip Studio\7.0\Labb2\Labb2\Labb2\main.asm</FILE><LINE>29</LINE></DELAY>
+  <DELAY_OUTER_LOOP><FILE>\\filur03.it.liu.se\students\joeeb477\Documents\Microchip Studio\7.0\Labb2\Labb2\Labb2\main.asm</FILE><LINE>33</LINE></DELAY_OUTER_LOOP>
+  <DELAY_INNER_LOOP><FILE>\\filur03.it.liu.se\students\joeeb477\Documents\Microchip Studio\7.0\Labb2\Labb2\Labb2\main.asm</FILE><LINE>35</LINE></DELAY_INNER_LOOP>
+  <HW_INIT><FILE>\\filur03.it.liu.se\students\joeeb477\Documents\Microchip Studio\7.0\Labb2\Labb2\Labb2\main.asm</FILE><LINE>44</LINE></HW_INIT>
+  <HW_INIT_EXIT><FILE>\\filur03.it.liu.se\students\joeeb477\Documents\Microchip Studio\7.0\Labb2\Labb2\Labb2\main.asm</FILE><LINE>47</LINE></HW_INIT_EXIT>
+  <GET_CHAR><FILE>\\filur03.it.liu.se\students\joeeb477\Documents\Microchip Studio\7.0\Labb2\Labb2\Labb2\main.asm</FILE><LINE>50</LINE></GET_CHAR>
+  <DO_SPACE><FILE>\\filur03.it.liu.se\students\joeeb477\Documents\Microchip Studio\7.0\Labb2\Labb2\Labb2\main.asm</FILE><LINE>119</LINE></DO_SPACE>
+  <GET_CHAR_EXIT><FILE>\\filur03.it.liu.se\students\joeeb477\Documents\Microchip Studio\7.0\Labb2\Labb2\Labb2\main.asm</FILE><LINE>54</LINE></GET_CHAR_EXIT>
   <BEEP_CHAR><FILE>\\filur03.it.liu.se\students\joeeb477\Documents\Microchip Studio\7.0\Labb2\Labb2\Labb2\main.asm</FILE><LINE>59</LINE></BEEP_CHAR>
-  <SEND_IT_EXIT><FILE>\\filur03.it.liu.se\students\joeeb477\Documents\Microchip Studio\7.0\Labb2\Labb2\Labb2\main.asm</FILE><LINE>56</LINE></SEND_IT_EXIT>
-  <LOOKUP><FILE>\\filur03.it.liu.se\students\joeeb477\Documents\Microchip Studio\7.0\Labb2\Labb2\Labb2\main.asm</FILE><LINE>93</LINE></LOOKUP>
+  <LOOKUP><FILE>\\filur03.it.liu.se\students\joeeb477\Documents\Microchip Studio\7.0\Labb2\Labb2\Labb2\main.asm</FILE><LINE>106</LINE></LOOKUP>
   <SEND><FILE>\\filur03.it.liu.se\students\joeeb477\Documents\Microchip Studio\7.0\Labb2\Labb2\Labb2\main.asm</FILE><LINE>67</LINE></SEND>
+  <NOBEEP><FILE>\\filur03.it.liu.se\students\joeeb477\Documents\Microchip Studio\7.0\Labb2\Labb2\Labb2\main.asm</FILE><LINE>92</LINE></NOBEEP>
   <BEEP_CHAR_EXIT><FILE>\\filur03.it.liu.se\students\joeeb477\Documents\Microchip Studio\7.0\Labb2\Labb2\Labb2\main.asm</FILE><LINE>64</LINE></BEEP_CHAR_EXIT>
   <SEND_BITS><FILE>\\filur03.it.liu.se\students\joeeb477\Documents\Microchip Studio\7.0\Labb2\Labb2\Labb2\main.asm</FILE><LINE>70</LINE></SEND_BITS>
-  <SHORT_BEEP><FILE>\\filur03.it.liu.se\students\joeeb477\Documents\Microchip Studio\7.0\Labb2\Labb2\Labb2\main.asm</FILE><LINE>79</LINE></SHORT_BEEP>
-  <BEEP><FILE>\\filur03.it.liu.se\students\joeeb477\Documents\Microchip Studio\7.0\Labb2\Labb2\Labb2\main.asm</FILE><LINE>81</LINE></BEEP>
-  <SEND_EXIT><FILE>\\filur03.it.liu.se\students\joeeb477\Documents\Microchip Studio\7.0\Labb2\Labb2\Labb2\main.asm</FILE><LINE>76</LINE></SEND_EXIT>
-  <BEEP_EXIT><FILE>\\filur03.it.liu.se\students\joeeb477\Documents\Microchip Studio\7.0\Labb2\Labb2\Labb2\main.asm</FILE><LINE>85</LINE></BEEP_EXIT>
-  <LOOKUP_EXIT><FILE>\\filur03.it.liu.se\students\joeeb477\Documents\Microchip Studio\7.0\Labb2\Labb2\Labb2\main.asm</FILE><LINE>103</LINE></LOOKUP_EXIT>
-  <MORSE_EXIT><FILE>\\filur03.it.liu.se\students\joeeb477\Documents\Microchip Studio\7.0\Labb2\Labb2\Labb2\main.asm</FILE><LINE>113</LINE></MORSE_EXIT>
+  <SHORT_BEEP><FILE>\\filur03.it.liu.se\students\joeeb477\Documents\Microchip Studio\7.0\Labb2\Labb2\Labb2\main.asm</FILE><LINE>81</LINE></SHORT_BEEP>
+  <BEEP><FILE>\\filur03.it.liu.se\students\joeeb477\Documents\Microchip Studio\7.0\Labb2\Labb2\Labb2\main.asm</FILE><LINE>83</LINE></BEEP>
+  <SEND_BITS_2><FILE>\\filur03.it.liu.se\students\joeeb477\Documents\Microchip Studio\7.0\Labb2\Labb2\Labb2\main.asm</FILE><LINE>73</LINE></SEND_BITS_2>
+  <SEND_EXIT><FILE>\\filur03.it.liu.se\students\joeeb477\Documents\Microchip Studio\7.0\Labb2\Labb2\Labb2\main.asm</FILE><LINE>78</LINE></SEND_EXIT>
+  <NOBEEP_EXIT><FILE>\\filur03.it.liu.se\students\joeeb477\Documents\Microchip Studio\7.0\Labb2\Labb2\Labb2\main.asm</FILE><LINE>99</LINE></NOBEEP_EXIT>
+  <SEND_IT><FILE>\\filur03.it.liu.se\students\joeeb477\Documents\Microchip Studio\7.0\Labb2\Labb2\Labb2\main.asm</FILE><LINE>102</LINE></SEND_IT>
+  <MORSE_LOOP><FILE>\\filur03.it.liu.se\students\joeeb477\Documents\Microchip Studio\7.0\Labb2\Labb2\Labb2\main.asm</FILE><LINE>133</LINE></MORSE_LOOP>
+  <LOOKUP_EXIT><FILE>\\filur03.it.liu.se\students\joeeb477\Documents\Microchip Studio\7.0\Labb2\Labb2\Labb2\main.asm</FILE><LINE>116</LINE></LOOKUP_EXIT>
+  <DO_SPACE_LOOP><FILE>\\filur03.it.liu.se\students\joeeb477\Documents\Microchip Studio\7.0\Labb2\Labb2\Labb2\main.asm</FILE><LINE>123</LINE></DO_SPACE_LOOP>
+  <MORSE_EXIT><FILE>\\filur03.it.liu.se\students\joeeb477\Documents\Microchip Studio\7.0\Labb2\Labb2\Labb2\main.asm</FILE><LINE>137</LINE></MORSE_EXIT>
  </LABELS>
 </ASSEMBLER_INFO>

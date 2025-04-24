@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.8  \\filur03.it.liu.se\students\joeeb477\Documents\Microchip Studio\7.0\Labb2\Labb2\Labb2\main.asm Tue Apr 22 12:07:25 2025
+AVRASM ver. 2.2.8  \\filur03.it.liu.se\students\joeeb477\Documents\Microchip Studio\7.0\Labb2\Labb2\Labb2\main.asm Thu Apr 24 15:41:16 2025
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc\m16Adef.inc'
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc\m16Adef.inc'
@@ -874,46 +874,46 @@ AVRASM ver. 2.2.8  \\filur03.it.liu.se\students\joeeb477\Documents\Microchip Stu
                                  ;
                                  
                                  .equ	T=10
-                                 .equ	N=10
+                                 .equ	N=70
                                  
 000000 e004                      ldi		r16,HIGH(RAMEND)
 000001 bf0e                      out		SPH,r16
 000002 e50f                      ldi		r16,LOW(RAMEND)
 000003 bf0d                      out		SPL,r16
-000004 e001                      ldi		r16,0b00000001
-000005 bb07                      out		DDRB,r16	; Sätter PB1 till utsignal
+000004 e800                      ldi		r16,0b10000000
+000005 bb07                      out		DDRB,r16
 000006 2700                      clr		r16
                                  
+000007 940c 0018                 jmp		AGAIN 
+                                 
                                  MESSAGE:	; Sparar ordet i flash
-000007 4144
-000008 4f54
-000009 5452
-00000a 4b45
-00000b 494e
-00000c 004b                      	.db		"DATORTEKNIK",$00	
+000009 204f
+00000a 004f                      	.db		"O O",$00
                                  BTAB:		; Sparar binärkodningen i flash
-00000d 8860
-00000e 90a8
-00000f 2840
-000010 08d0
-000011 7820
-000012 48b0
-000013 a0e0
-000014 68f0
-000015 50d8
-000016 c010
-000017 1830
-000018 9870
-000019 c8b8                      	.db		$60,$88,$A8,$90,$40,$28,$D0,$08,$20,$78,$B0,$48,$E0,$A0,$F0,$68,$D8,$50,$10,$C0,$30,$18,$70,$98,$B8,$C8
+00000b 8860
+00000c 90a8
+00000d 2840
+00000e 08d0
+00000f 7820
+000010 48b0
+000011 a0e0
+000012 68f0
+000013 50d8
+000014 c010
+000015 1830
+000016 9870
+000017 c8b8                      	.db		$60,$88,$A8,$90,$40,$28,$D0,$08,$20,$78,$B0,$48,$E0,$A0,$F0,$68,$D8,$50,$10,$C0,$30,$18,$70,$98,$B8,$C8
                                  
                                  ;;;;;;;;;;;;;;;;;;;; Loopar huvudprogrammet
                                  AGAIN:
-00001a 940e 004c                 	call	MORSE
-00001c 940c 001a                 	jmp		AGAIN
+000018 940e 006c                 	call	MORSE
+00001a 940c 0018                 	jmp		AGAIN
                                  
                                  ;;;;;;;;;;;;;;;;;;;; Subrutin DELAY(r16=length)
                                  DELAY:
-00001e 931f                      	push	r17
+00001c 931f                      	push	r17
+00001d 932f                      	push	r18
+00001e e02a                      	ldi		r18,T
                                  DELAY_OUTER_LOOP:
 00001f e11f                      	ldi		r17,$1F
                                  DELAY_INNER_LOOP:
@@ -921,85 +921,105 @@ AVRASM ver. 2.2.8  \\filur03.it.liu.se\students\joeeb477\Documents\Microchip Stu
 000021 f7f1                      	brne	DELAY_INNER_LOOP
 000022 952a                      	dec		r18
 000023 f7d9                      	brne	DELAY_OUTER_LOOP
-000024 911f                      	pop		r17
-000025 9508                      	ret
+000024 912f                      	pop		r18
+000025 911f                      	pop		r17
+000026 9508                      	ret
                                  
                                  HW_INIT:	; är det detta som menas?
-000026 e0f0                      	ldi		ZH,HIGH(MESSAGE*2)
-000027 e0ee                      	ldi		ZL,LOW(MESSAGE*2)
+000027 e0f0                      	ldi		ZH,HIGH(MESSAGE*2)
+000028 e1e2                      	ldi		ZL,LOW(MESSAGE*2)
                                  HW_INIT_EXIT:
-000028 9508                      	ret		; gå till MORSE
+000029 9508                      	ret		; gå till MORSE
                                  
                                  GET_CHAR:
-000029 9105                      	lpm		r16,Z+
-                                 	;brne	LOOKUP
-                                 	;call	SEND
-                                 	;brne	GET_CHAR
+00002a 9105                      	lpm		r16,Z+
+00002b 3200                      	cpi		r16,' '
+00002c f1a9                      	breq	DO_SPACE
                                  GET_CHAR_EXIT:
-00002a 9508                      	ret		; gå till MORSE
+00002d 9508                      	ret	
                                  
-                                 SEND_IT:
-00002b 940e 002f                 	call	BEEP_CHAR
-00002d f7d9                      	brne	GET_CHAR
-                                 SEND_IT_EXIT:
-00002e 9508                      	ret
+                                 
                                  
                                  BEEP_CHAR:
-00002f 940e 0042                 	call	LOOKUP
-000031 940e 0035                 	call	SEND
-000033 e114                      	ldi		r17,2*N
-                                 	;call	NOBEEP
+00002e 940e 0058                 	call	LOOKUP
+000030 940e 0036                 	call	SEND
+000032 e82c                      	ldi		r18,2*N
+000033 940e 004b                 	call	NOBEEP
                                  BEEP_CHAR_EXIT:
-000034 9508                      	ret
+000035 9508                      	ret
                                  
                                  SEND:
-000035 0f00                      	lsl		r16
-000036 e12e                      	ldi		r18,3*N
+000036 0f00                      	lsl		r16
+000037 ed22                      	ldi		r18,3*N
                                  SEND_BITS:
-000037 f420                      	brcc	SHORT_BEEP	; Hur sätter vi längden?
-000038 f020                      	brcs	BEEP
-                                 	;call	NOBEEP
-000039 7f0f                      	andi	r16,$FF
-00003a f7d1                      	brne	SEND
+000038 f438                      	brcc	SHORT_BEEP
+000039 f038                      	brcs	BEEP
+                                 SEND_BITS_2:
+00003a e426                      	ldi		r18,N
+00003b 940e 004b                 	call	NOBEEP
+00003d 3800                      	cpi		r16,0b10000000
+00003e f7b9                      	brne	SEND
                                  SEND_EXIT:
-00003b 9508                      	ret
+00003f 9508                      	ret
                                  
                                  SHORT_BEEP:
-00003c e02a                      	ldi		r18,N
+000040 e426                      	ldi		r18,N
                                  BEEP:
-00003d 9ac7                      	sbi		PORTB,7	
-00003e 940e 001e                 	call	DELAY
-000040 98c7                      	cbi		PORTB,7
-                                 BEEP_EXIT:
-000041 9508                      	ret
+000041 9ac7                      	sbi		PORTB,7	
+000042 940e 001c                 	call	DELAY
+000044 98c7                      	cbi		PORTB,7
+000045 940e 001c                 	call	DELAY
+000047 952a                      	dec		r18
+000048 f7c1                      	brne	BEEP
+000049 940c 003a                 	jmp		SEND_BITS_2
                                  
-                                 ;NOBEEP:
-                                 ;	ldi		r18,N
+                                 NOBEEP:
+00004b 98c7                      	cbi		PORTB,7	
+00004c 940e 001c                 	call	DELAY
+00004e 98c7                      	cbi		PORTB,7
+00004f 940e 001c                 	call	DELAY
+000051 952a                      	dec		r18
+000052 f7c1                      	brne	NOBEEP
+                                 NOBEEP_EXIT:
+000053 9508                      	ret
                                  
+                                 SEND_IT:
+000054 940e 002e                 	call	BEEP_CHAR
+000056 940c 006e                 	jmp		MORSE_LOOP
                                  
-                                 
-                                 LOOKUP:
-000042 93ff                      	push	ZH
-000043 93ef                      	push	ZL
-000044 e0f0                      	ldi		ZH,HIGH(BTAB*2)
-000045 e1ea                      	ldi		ZL,LOW(BTAB*2)
-000046 5401                      	subi	r16,'A'
-000047 0fe0                      	add		ZL,r16
-000048 9104                      	lpm		r16,Z
-000049 91ef                      	pop		ZL
-00004a 91ff                      	pop		ZH
+                                 LOOKUP: ; Konverterar till ASCII
+000058 93ff                      	push	ZH
+000059 93ef                      	push	ZL
+00005a e0f0                      	ldi		ZH,HIGH(BTAB*2)
+00005b e1e6                      	ldi		ZL,LOW(BTAB*2)
+00005c 5401                      	subi	r16,'A'
+00005d 0fe0                      	add		ZL,r16
+00005e 9104                      	lpm		r16,Z
+00005f 91ef                      	pop		ZL
+000060 91ff                      	pop		ZH
                                  LOOKUP_EXIT:
-00004b 9508                      	ret
+000061 9508                      	ret
                                  
-                                 
+                                 DO_SPACE:
+000062 e426                      	ldi		r18,N
+000063 930f                      	push	r16
+000064 e007                      	ldi		r16,7
+                                 DO_SPACE_LOOP:
+000065 940e 004b                 	call	NOBEEP
+000067 950a                      	dec		r16
+000068 f7e1                      	brne	DO_SPACE_LOOP
+000069 910f                      	pop		r16
+00006a 940c 002a                 	jmp GET_CHAR
                                  
                                  ;;;;;;;;;;;;;;;;;;;; Huvudprogrammet
                                  MORSE:
-00004c 940e 0026                 	call	HW_INIT
-00004e 940e 0029                 	call	GET_CHAR
-000050 940e 002b                 	call	SEND_IT
+00006c 940e 0027                 	call	HW_INIT
+                                 MORSE_LOOP:
+00006e 940e 002a                 	call	GET_CHAR
+000070 3000                      	cpi		r16,$00
+000071 f711                      	brne	SEND_IT
                                  MORSE_EXIT:
-000052 9508                      	ret		; Gå till AGAIN
+000072 9508                      	ret		; Gå till AGAIN
                                  
 
 
@@ -1020,37 +1040,37 @@ counted separately from r26..r31 here.
 "ATmega16A" register use summary:
 x  :   0 y  :   0 z  :   2 r0 :   0 r1 :   0 r2 :   0 r3 :   0 r4 :   0 
 r5 :   0 r6 :   0 r7 :   0 r8 :   0 r9 :   0 r10:   0 r11:   0 r12:   0 
-r13:   0 r14:   0 r15:   0 r16:  13 r17:   5 r18:   3 r19:   0 r20:   0 
+r13:   0 r14:   0 r15:   0 r16:  19 r17:   4 r18:  11 r19:   0 r20:   0 
 r21:   0 r22:   0 r23:   0 r24:   0 r25:   0 r26:   0 r27:   0 r28:   0 
 r29:   0 r30:   5 r31:   4 
 Registers used: 6 out of 35 (17.1%)
 
 "ATmega16A" instruction use summary:
 .lds  :   0 .sts  :   0 adc   :   0 add   :   1 adiw  :   0 and   :   0 
-andi  :   1 asr   :   0 bclr  :   0 bld   :   0 brbc  :   0 brbs  :   0 
-brcc  :   1 brcs  :   1 break :   0 breq  :   0 brge  :   0 brhc  :   0 
+andi  :   0 asr   :   0 bclr  :   0 bld   :   0 brbc  :   0 brbs  :   0 
+brcc  :   1 brcs  :   1 break :   0 breq  :   1 brge  :   0 brhc  :   0 
 brhs  :   0 brid  :   0 brie  :   0 brlo  :   0 brlt  :   0 brmi  :   0 
-brne  :   4 brpl  :   0 brsh  :   0 brtc  :   0 brts  :   0 brvc  :   0 
-brvs  :   0 bset  :   0 bst   :   0 call  :   8 cbi   :   1 cbr   :   0 
+brne  :   7 brpl  :   0 brsh  :   0 brtc  :   0 brts  :   0 brvc  :   0 
+brvs  :   0 bset  :   0 bst   :   0 call  :  13 cbi   :   3 cbr   :   0 
 clc   :   0 clh   :   0 cli   :   0 cln   :   0 clr   :   1 cls   :   0 
 clt   :   0 clv   :   0 clz   :   0 com   :   0 cp    :   0 cpc   :   0 
-cpi   :   0 cpse  :   0 dec   :   2 eor   :   0 fmul  :   0 fmuls :   0 
-fmulsu:   0 icall :   0 ijmp  :   0 in    :   0 inc   :   0 jmp   :   1 
-ld    :   0 ldd   :   0 ldi   :  11 lds   :   0 lpm   :   3 lsl   :   1 
+cpi   :   3 cpse  :   0 dec   :   5 eor   :   0 fmul  :   0 fmuls :   0 
+fmulsu:   0 icall :   0 ijmp  :   0 in    :   0 inc   :   0 jmp   :   5 
+ld    :   0 ldd   :   0 ldi   :  15 lds   :   0 lpm   :   3 lsl   :   1 
 lsr   :   0 mov   :   0 movw  :   0 mul   :   0 muls  :   0 mulsu :   0 
-neg   :   0 nop   :   0 or    :   0 ori   :   0 out   :   3 pop   :   3 
-push  :   3 rcall :   0 ret   :   9 reti  :   0 rjmp  :   0 rol   :   0 
+neg   :   0 nop   :   0 or    :   0 ori   :   0 out   :   3 pop   :   5 
+push  :   5 rcall :   0 ret   :   8 reti  :   0 rjmp  :   0 rol   :   0 
 ror   :   0 sbc   :   0 sbci  :   0 sbi   :   1 sbic  :   0 sbis  :   0 
 sbiw  :   0 sbr   :   0 sbrc  :   0 sbrs  :   0 sec   :   0 seh   :   0 
 sei   :   0 sen   :   0 ser   :   0 ses   :   0 set   :   0 sev   :   0 
 sez   :   0 sleep :   0 spm   :   0 st    :   0 std   :   0 sts   :   0 
 sub   :   0 subi  :   1 swap  :   0 tst   :   0 wdr   :   0 
-Instructions used: 19 out of 113 (16.8%)
+Instructions used: 20 out of 113 (17.7%)
 
 "ATmega16A" memory use summary [bytes]:
 Segment   Begin    End      Code   Data   Used    Size   Use%
 ---------------------------------------------------------------
-[.cseg] 0x000000 0x0000a6    128     38    166   16384   1.0%
+[.cseg] 0x000000 0x0000e6    200     30    230   16384   1.4%
 [.dseg] 0x000060 0x000060      0      0      0    1024   0.0%
 [.eseg] 0x000000 0x000000      0      0      0     512   0.0%
 
